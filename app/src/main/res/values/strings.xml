@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">C110181149AppDev</string>
+    <string-array name="homeType">
+        <item>親家</item>
+        <item>閒家</item>
+    </string-array>
+    <string-array name="PeopleType">
+        <item>三人麻將</item>
+        <item>四人麻將</item>
+    </string-array>
 </resources>

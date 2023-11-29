@@ -3,6 +3,7 @@ package com.example.c110181149appdev;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -19,5 +20,9 @@ public class MainActivity extends AppCompatActivity {
         FanScore = findViewById(R.id.fanCount);
         FuScore = findViewById(R.id.fuCount);
         Count = findViewById(R.id.CountBtn);
+    }
+
+    public void BtnClick(View view){
+
     }
 }

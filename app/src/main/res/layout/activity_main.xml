@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.327" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/HomeSpinner"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:entries="@array/homeType"
@@ -79,7 +79,7 @@
         app:layout_constraintVertical_bias="0.363" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/PeopleSpinner"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:entries="@array/PeopleType"

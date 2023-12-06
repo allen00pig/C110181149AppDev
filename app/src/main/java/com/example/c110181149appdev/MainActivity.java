@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText FanScore, FuScore;
+    private EditText FanScore, FuScore ,Sessions;
     private Button Count;
     private Spinner HomeSpinner, PeopleSpinner;
     private Integer SelfDrawnScore = 0;
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private String ManGan = "";
     private TextView output;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Count = findViewById(R.id.CountBtn);
         HomeSpinner = findViewById(R.id.HomeSpinner);
         PeopleSpinner = findViewById(R.id.PeopleSpinner);
+        Sessions = findViewById(R.id.SessionCount);
         output = findViewById(R.id.lblOutput);
     }
 
@@ -46,59 +48,57 @@ public class MainActivity extends AppCompatActivity {
 
         int Fan = Integer.parseInt(FanScore.getText().toString());
         int Fu = Integer.parseInt(FuScore.getText().toString());
+        int Session = Integer.parseInt(Sessions.getText().toString());
         //轉換成整數
+
+        SelfDrawnScore = 0;
+        chunkScore = 0;
+        PlayerSelfDrawnScore = 0;
+        DealerSeifDrawnScore = 0;
+        ManGan = "";
 
         if (idHome == 0 && idPeople == 0) {
             //這是三麻親家
             if (Fan == 1) {
                 if (Fu == 30) {
                     chunkScore = 1500;
-                    SelfDrawnScore = 1000;
                     PlayerSelfDrawnScore = 500;
 
                 }
-                if(Fu == 40){
+                if (Fu == 40) {
                     chunkScore = 2000;
-                    SelfDrawnScore = 1400;
                     PlayerSelfDrawnScore = 700;
                 }
-                if(Fu == 50){
+                if (Fu == 50) {
                     chunkScore = 2400;
-                    SelfDrawnScore = 1600;
                     PlayerSelfDrawnScore = 800;
                 }
-                if(Fu == 60){
-                    chunkScore = 1000;
-                    SelfDrawnScore = 2000;
+                if (Fu == 60) {
+                    chunkScore = 2900;
                     PlayerSelfDrawnScore = 1000;
                 }
-                if(Fu == 70){
-                    chunkScore = 2900;
-                    SelfDrawnScore = 2400;
+                if (Fu == 70) {
+                    chunkScore = 3400;
                     PlayerSelfDrawnScore = 1200;
                 }
-                if(Fu == 80){
+                if (Fu == 80) {
                     chunkScore = 3900;
-                    SelfDrawnScore = 2600;
                     PlayerSelfDrawnScore = 1300;
                 }
-                if(Fu == 90){
+                if (Fu == 90) {
                     chunkScore = 4400;
-                    SelfDrawnScore = 3000;
                     PlayerSelfDrawnScore = 1500;
                 }
-                if(Fu == 100){
+                if (Fu == 100) {
                     chunkScore = 4800;
-                    SelfDrawnScore = 3200;
                     PlayerSelfDrawnScore = 1600;
                 }
-                if(Fu == 110){
+                if (Fu == 110) {
                     chunkScore = 5300;
                 }
             }
             if (Fan == 2) {
-                if (Fu == 20) {
-                    SelfDrawnScore = 1400;
+                if (Fu == 20) {;
                     PlayerSelfDrawnScore = 700;
                 }
                 if (Fu == 25) {
@@ -106,376 +106,634 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (Fu == 30) {
                     chunkScore = 2900;
-                    SelfDrawnScore = 2000;
                     PlayerSelfDrawnScore = 1000;
 
                 }
-                if(Fu == 40){
+                if (Fu == 40) {
                     chunkScore = 3900;
-                    SelfDrawnScore = 2600;
                     PlayerSelfDrawnScore = 1300;
                 }
-                if(Fu == 50){
+                if (Fu == 50) {
                     chunkScore = 4800;
-                    SelfDrawnScore = 3200;
                     PlayerSelfDrawnScore = 1600;
                 }
-                if(Fu == 60){
+                if (Fu == 60) {
                     chunkScore = 5800;
-                    SelfDrawnScore = 4000;
                     PlayerSelfDrawnScore = 2000;
                 }
-                if(Fu == 70){
+                if (Fu == 70) {
                     chunkScore = 6800;
-                    SelfDrawnScore = 4600;
                     PlayerSelfDrawnScore = 2300;
                 }
-                if(Fu == 80){
+                if (Fu == 80) {
                     chunkScore = 7700;
-                    SelfDrawnScore = 5200;
                     PlayerSelfDrawnScore = 2600;
                 }
-                if(Fu == 90){
+                if (Fu == 90) {
                     chunkScore = 8700;
-                    SelfDrawnScore = 5800;
                     PlayerSelfDrawnScore = 2900;
                 }
-                if(Fu == 100){
+                if (Fu == 100) {
                     chunkScore = 9600;
-                    SelfDrawnScore = 6400;
                     PlayerSelfDrawnScore = 3200;
                 }
-                if(Fu == 110){
+                if (Fu == 110) {
                     chunkScore = 10600;
-                    SelfDrawnScore = 7200;
                     PlayerSelfDrawnScore = 3600;
                 }
-                if(Fan == 3){
-                    if (Fu == 20) {
-                        SelfDrawnScore = 2600;
-                        PlayerSelfDrawnScore = 1300;
-                    }
-                    if (Fu == 25) {
-                        chunkScore = 4800;
-                        SelfDrawnScore = 3200;
-                        PlayerSelfDrawnScore = 1600;
-                    }
-                    if (Fu == 30) {
-                        chunkScore = 5800;
-                        SelfDrawnScore = 4000;
-                        PlayerSelfDrawnScore = 2000;
-
-                    }
-                    if(Fu == 40){
-                        chunkScore = 7700;
-                        SelfDrawnScore = 5200;
-                        PlayerSelfDrawnScore = 2600;
-                    }
-                    if(Fu == 50){
-                        chunkScore = 9600;
-                        SelfDrawnScore = 6400;
-                        PlayerSelfDrawnScore = 3200;
-                    }
-                    if(Fu == 60){
-                        chunkScore = 11600;
-                        SelfDrawnScore = 7800;
-                        PlayerSelfDrawnScore = 3900;
-                    }
-                    if(Fu >= 70){
-                        ManGan = "滿貫";
-                        chunkScore = 12000;
-                        SelfDrawnScore = 8000;
-                        PlayerSelfDrawnScore = 4000;
-                    }
+            }
+            if (Fan == 3) {
+                if (Fu == 20) {
+                    PlayerSelfDrawnScore = 1300;
                 }
-                if(Fan == 4){
-                    if(Fu == 20){
-                        SelfDrawnScore = 5200;
-                        PlayerSelfDrawnScore = 2600;
-                    }
-                    if(Fu == 25){
-                        chunkScore = 9600;
-                        SelfDrawnScore = 6400;
-                        PlayerSelfDrawnScore = 3200;
-                    }
-                    if(Fu == 30){
-                        chunkScore = 11600;
-                        SelfDrawnScore = 7800;
-                        PlayerSelfDrawnScore = 3900;
-                    }
-                    if(Fu >= 40){
-                        ManGan = "滿貫";
-                        chunkScore = 12000;
-                        SelfDrawnScore = 8000;
-                        PlayerSelfDrawnScore = 4000;
-                    }
+                if (Fu == 25) {
+                    chunkScore = 4800;
+                    PlayerSelfDrawnScore = 1600;
                 }
-                if(Fan == 5){
+                if (Fu == 30) {
+                    chunkScore = 5800;
+                    PlayerSelfDrawnScore = 2000;
+                }
+                if (Fu == 40) {
+                    chunkScore = 7700;
+                    PlayerSelfDrawnScore = 2600;
+                }
+                if (Fu == 50) {
+                    chunkScore = 9600;
+                    PlayerSelfDrawnScore = 3200;
+                }
+                if (Fu == 60) {
+                    chunkScore = 11600;
+                    PlayerSelfDrawnScore = 3900;
+                }
+                if (Fu >= 70) {
                     ManGan = "滿貫";
                     chunkScore = 12000;
-                    SelfDrawnScore = 8000;
                     PlayerSelfDrawnScore = 4000;
                 }
-                if(Fan== 6 || Fan == 7){
-                    ManGan = "跳滿";
-                    chunkScore = 18000;
-                    SelfDrawnScore = 12000;
-                    PlayerSelfDrawnScore = 6000;
+            }
+            if (Fan == 4) {
+                if (Fu == 20) {
+                    PlayerSelfDrawnScore = 2600;
                 }
-                if(Fan>= 8 && Fan <= 10){
-                    ManGan = "倍滿";
-                    chunkScore = 24000;
-                    SelfDrawnScore = 16000;
-                    PlayerSelfDrawnScore = 8000;
+                if (Fu == 25) {
+                    chunkScore = 9600;
+                    PlayerSelfDrawnScore = 3200;
                 }
-                if(Fan== 11 || Fan == 12){
-                    ManGan = "三倍滿";
-                    chunkScore = 36000;
-                    SelfDrawnScore = 24000;
-                    PlayerSelfDrawnScore = 12000;
+                if (Fu == 30) {
+                    chunkScore = 11600;
+                    PlayerSelfDrawnScore = 3900;
                 }
-                if(Fan >= 13){
-                    ManGan = "累積役滿";
-                    chunkScore = 48000;
-                    SelfDrawnScore = 32000;
-                    PlayerSelfDrawnScore = 16000;
+                if (Fu >= 40) {
+                    ManGan = "滿貫";
+                    chunkScore = 12000;
+                    PlayerSelfDrawnScore = 4000;
                 }
             }
-            if (idHome == 1 && idPeople == 0) {
-                //這是三麻閒家
-                if (Fan == 1) {
-                    if (Fu == 30) {
-                        chunkScore = 1000;
-                        SelfDrawnScore = 800;
-                        PlayerSelfDrawnScore = 300;
-                        DealerSeifDrawnScore = 500;
-                    }
-                    if (Fu == 40) {
-                        chunkScore = 1300;
-                        SelfDrawnScore = 1100;
-                        PlayerSelfDrawnScore = 400;
-                        DealerSeifDrawnScore = 700;
-                    }
-                    if (Fu == 50) {
-                        chunkScore = 1600;
-                        SelfDrawnScore = 1200;
-                        PlayerSelfDrawnScore = 400;
-                        DealerSeifDrawnScore = 800;
-                    }
-                    if(Fu == 60) {
-                        chunkScore = 2000;
-                        SelfDrawnScore = 1500;
-                        PlayerSelfDrawnScore = 500;
-                        DealerSeifDrawnScore = 1000;
-                    }
-                }
+            if (Fan == 5) {
+                ManGan = "滿貫";
+                chunkScore = 12000;
+                PlayerSelfDrawnScore = 4000;
             }
-            if (idHome == 0 && idPeople == 1) {
-                //這是四麻親家
-                if (Fan == 1) {
-                    if (Fu == 30) {
-                        chunkScore = 1500;
-                        SelfDrawnScore = 1500;
-                        PlayerSelfDrawnScore = 500;
-
-                    }
-                    if(Fu == 40){
-                        chunkScore = 2000;
-                        SelfDrawnScore = 2100;
-                        PlayerSelfDrawnScore = 700;
-                    }
-                    if(Fu == 50){
-                        chunkScore = 2400;
-                        SelfDrawnScore = 2400;
-                        PlayerSelfDrawnScore = 800;
-                    }
-                    if(Fu == 60){
-                        chunkScore = 2900;
-                        SelfDrawnScore = 3000;
-                        PlayerSelfDrawnScore = 1000;
-                    }
-                    if(Fu == 70){
-                        chunkScore = 3400;
-                        SelfDrawnScore = 3600;
-                        PlayerSelfDrawnScore = 1200;
-                    }
-                    if(Fu == 80){
-                        chunkScore = 3900;
-                        SelfDrawnScore = 3900;
-                        PlayerSelfDrawnScore = 1300;
-                    }
-                    if(Fu == 90){
-                        chunkScore = 4400;
-                        SelfDrawnScore = 4500;
-                        PlayerSelfDrawnScore = 1500;
-                    }
-                    if(Fu == 100){
-                        chunkScore = 4800;
-                        SelfDrawnScore = 4800;
-                        PlayerSelfDrawnScore = 1600;
-                    }
-                    if(Fu == 110){
-                        chunkScore = 10600;
-                        SelfDrawnScore = 10800;
-                        PlayerSelfDrawnScore = 3600;
-
-                    }
-                }
-                if (Fan == 2) {
-                    if (Fu == 20) {
-                        SelfDrawnScore = 2100;
-                        PlayerSelfDrawnScore = 700;
-                    }
-                    if (Fu == 25) {
-                        chunkScore = 2400;
-                    }
-                    if (Fu == 30) {
-                        chunkScore = 2900;
-                        SelfDrawnScore = 3000;
-                        PlayerSelfDrawnScore = 1000;
-
-                    }
-                    if (Fu == 40) {
-                        chunkScore = 3900;
-                        SelfDrawnScore = 3900;
-                        PlayerSelfDrawnScore = 1300;
-                    }
-                    if (Fu == 50) {
-                        chunkScore = 4800;
-                        SelfDrawnScore = 4800;
-                        PlayerSelfDrawnScore = 1600;
-                    }
-                    if (Fu == 60) {
-                        chunkScore = 5800;
-                        SelfDrawnScore = 6000;
-                        PlayerSelfDrawnScore = 2000;
-                    }
-                    if (Fu == 70) {
-                        chunkScore = 6800;
-                        SelfDrawnScore = 6900;
-                        PlayerSelfDrawnScore = 2300;
-                    }
-                    if (Fu == 80) {
-                        chunkScore = 7700;
-                        SelfDrawnScore = 7800;
-                        PlayerSelfDrawnScore = 2600;
-                    }
-                    if (Fu == 90) {
-                        chunkScore = 8700;
-                        SelfDrawnScore = 8700;
-                        PlayerSelfDrawnScore = 2900;
-                    }
-                    if (Fu == 100) {
-                        chunkScore = 9600;
-                        SelfDrawnScore = 9600;
-                        PlayerSelfDrawnScore = 3200;
-                    }
-                    if (Fu == 110) {
-                        chunkScore = 10600;
-                        SelfDrawnScore = 10800;
-                        PlayerSelfDrawnScore = 3600;
-                    }
-                    if (Fan == 3) {
-                        if (Fu == 20) {
-                            SelfDrawnScore = 3900;
-                            PlayerSelfDrawnScore = 1300;
-                        }
-                        if (Fu == 25) {
-                            chunkScore = 4800;
-                            SelfDrawnScore = 4800;
-                            PlayerSelfDrawnScore = 1600;
-                        }
-                        if (Fu == 30) {
-                            chunkScore = 5800;
-                            SelfDrawnScore = 6000;
-                            PlayerSelfDrawnScore = 2000;
-
-                        }
-                        if (Fu == 40) {
-                            chunkScore = 7700;
-                            SelfDrawnScore = 7800;
-                            PlayerSelfDrawnScore = 2600;
-                        }
-                        if (Fu == 50) {
-                            chunkScore = 9600;
-                            SelfDrawnScore = 9600;
-                            PlayerSelfDrawnScore = 3200;
-                        }
-                        if (Fu == 60) {
-                            chunkScore = 11600;
-                            SelfDrawnScore = 7800;
-                            PlayerSelfDrawnScore = 3900;
-                        }
-                        if (Fu >= 70) {
-                            ManGan = "滿貫";
-                            chunkScore = 12000;
-                            SelfDrawnScore = 12000;
-                            PlayerSelfDrawnScore = 4000;
-                        }
-                    }
-                    if (Fan == 4) {
-                        if (Fu == 20) {
-                            SelfDrawnScore = 7800;
-                            PlayerSelfDrawnScore = 2600;
-                        }
-                        if (Fu == 25) {
-                            chunkScore = 9600;
-                            SelfDrawnScore = 9600;
-                            PlayerSelfDrawnScore = 3200;
-                        }
-                        if (Fu == 30) {
-                            chunkScore = 11600;
-                            SelfDrawnScore = 11700;
-                            PlayerSelfDrawnScore = 3900;
-                        }
-                        if (Fu >= 40) {
-                            ManGan = "滿貫";
-                            chunkScore = 12000;
-                            SelfDrawnScore = 12000;
-                            PlayerSelfDrawnScore = 4000;
-                        }
-                    }
-                    if (Fan == 5) {
-                        ManGan = "滿貫";
-                        chunkScore = 12000;
-                        SelfDrawnScore = 12000;
-                        PlayerSelfDrawnScore = 4000;
-                    }
-                    if (Fan == 6 || Fan == 7) {
-                        ManGan = "跳滿";
-                        chunkScore = 18000;
-                        SelfDrawnScore = 18000;
-                        PlayerSelfDrawnScore = 6000;
-                    }
-                    if (Fan >= 8 && Fan <= 10) {
-                        ManGan = "倍滿";
-                        chunkScore = 24000;
-                        SelfDrawnScore = 24000;
-                        PlayerSelfDrawnScore = 8000;
-                    }
-                    if (Fan == 11 || Fan == 12) {
-                        ManGan = "三倍滿";
-                        chunkScore = 36000;
-                        SelfDrawnScore = 36000;
-                        PlayerSelfDrawnScore = 12000;
-                    }
-                    if (Fan >= 13) {
-                        ManGan = "累積役滿";
-                        chunkScore = 48000;
-                        SelfDrawnScore = 48000;
-                        PlayerSelfDrawnScore = 16000;
-                    }
-                }
+            if (Fan == 6 || Fan == 7) {
+                ManGan = "跳滿";
+                chunkScore = 18000;
+                PlayerSelfDrawnScore = 6000;
             }
-            if (idHome == 1 && idPeople == 1) {
-                //這是四麻閒家
-
+            if (Fan >= 8 && Fan <= 10) {
+                ManGan = "倍滿";
+                chunkScore = 24000;
+                PlayerSelfDrawnScore = 8000;
             }
-            output.setText(ManGan+
-                    "\n總自摸得分: "+SelfDrawnScore +
-                    "\n放槍得分: "+chunkScore+
-                    "\n自摸閒家給分"+PlayerSelfDrawnScore +
-                    "\n自摸親家給分:"+DealerSeifDrawnScore);
+            if (Fan == 11 || Fan == 12) {
+                ManGan = "三倍滿";
+                chunkScore = 36000;
+                PlayerSelfDrawnScore = 12000;
+            }
+            if (Fan >= 13) {
+                ManGan = "累積役滿";
+                chunkScore = 48000;
+                PlayerSelfDrawnScore = 16000;
+            }
+            SelfDrawnScore = PlayerSelfDrawnScore * 2;
         }
+        if (idHome == 1 && idPeople == 0) {
+            //這是三麻閒家
+            if (Fan == 1) {
+                if (Fu == 30) {
+                    chunkScore = 1000;
+                    PlayerSelfDrawnScore = 300;
+                    DealerSeifDrawnScore = 500;
+                }
+                if (Fu == 40) {
+                    chunkScore = 1300;
+                    PlayerSelfDrawnScore = 400;
+                    DealerSeifDrawnScore = 700;
+                }
+                if (Fu == 50) {
+                    chunkScore = 1600;
+                    PlayerSelfDrawnScore = 400;
+                    DealerSeifDrawnScore = 800;
+                }
+                if (Fu == 60) {
+                    chunkScore = 2000;
+                    PlayerSelfDrawnScore = 500;
+                    DealerSeifDrawnScore = 1000;
+                }
+                if (Fu == 70){
+                    chunkScore = 2300;
+                    PlayerSelfDrawnScore = 600;
+                    DealerSeifDrawnScore = 1200;
+                }
+                if(Fu == 80){
+                    chunkScore = 2600;
+                    PlayerSelfDrawnScore = 700;
+                    DealerSeifDrawnScore = 1300;
+                }
+                if(Fu == 90){
+                    chunkScore = 2900;
+                    PlayerSelfDrawnScore = 800;
+                    DealerSeifDrawnScore = 1500;
+                }
+                if(Fu == 100){
+                    chunkScore = 3200;
+                    PlayerSelfDrawnScore = 800;
+                    DealerSeifDrawnScore = 1600;
+                }
+                if(Fu == 110){
+                    chunkScore = 3600;
+                }
+            }
+            if (Fan == 2){
+                if(Fu == 20){
+                    PlayerSelfDrawnScore = 400;
+                    DealerSeifDrawnScore = 700;
+                }
+                if(Fu == 25){
+                    chunkScore = 1600;
+                }
+                if (Fu == 30) {
+                    chunkScore = 2000;
+                    PlayerSelfDrawnScore = 500;
+                    DealerSeifDrawnScore = 1000;
+                }
+                if (Fu == 40) {
+                    chunkScore = 2600;
+                    PlayerSelfDrawnScore = 700;
+                    DealerSeifDrawnScore = 1300;
+                }
+                if (Fu == 50) {
+                    chunkScore = 3200;
+                    PlayerSelfDrawnScore = 800;
+                    DealerSeifDrawnScore = 1600;
+                }
+                if (Fu == 60) {
+                    chunkScore = 3900;
+                    PlayerSelfDrawnScore = 1000;
+                    DealerSeifDrawnScore = 2000;
+                }
+                if (Fu == 70){
+                    chunkScore = 4500;
+                    PlayerSelfDrawnScore = 1200;
+                    DealerSeifDrawnScore = 2300;
+                }
+                if(Fu == 80){
+                    chunkScore = 5200;
+                    PlayerSelfDrawnScore = 1300;
+                    DealerSeifDrawnScore = 2600;
+                }
+                if(Fu == 90){
+                    chunkScore = 5800;
+                    PlayerSelfDrawnScore = 1500;
+                    DealerSeifDrawnScore = 2900;
+                }
+                if(Fu == 100){
+                    chunkScore = 6400;
+                    PlayerSelfDrawnScore = 1600;
+                    DealerSeifDrawnScore = 3200;
+                }
+                if(Fu == 110){
+                    chunkScore = 7100;
+                    PlayerSelfDrawnScore = 1800;
+                    DealerSeifDrawnScore = 3600;
+                }
+            }
+            if(Fan == 3){
+                if(Fu == 20){
+                    PlayerSelfDrawnScore = 700;
+                    DealerSeifDrawnScore = 1300;
+                }
+                if(Fu == 25){
+                    chunkScore = 3200;
+                    PlayerSelfDrawnScore = 800;
+                    DealerSeifDrawnScore = 1600;
+                }
+                if(Fu == 30){
+                    chunkScore = 3900;
+                    PlayerSelfDrawnScore = 1000;
+                    DealerSeifDrawnScore = 2000;
+                }
+                if(Fu == 40){
+                    chunkScore = 5200;
+                    PlayerSelfDrawnScore = 1300;
+                    DealerSeifDrawnScore = 2600;
+                }
+                if(Fu == 50){
+                    chunkScore = 6400;
+                    PlayerSelfDrawnScore = 1600;
+                    DealerSeifDrawnScore = 3200;
+                }
+                if(Fu == 60){
+                    chunkScore = 7700;
+                    PlayerSelfDrawnScore = 2000;
+                    DealerSeifDrawnScore = 3900;
+                }
+                if(Fu >= 70){
+                    ManGan = "滿貫";
+                    chunkScore = 8000;
+                    PlayerSelfDrawnScore = 2000;
+                    DealerSeifDrawnScore = 4000;
+                }
+            }
+            if(Fan == 5){
+                ManGan = "滿貫";
+                chunkScore = 8000;
+                PlayerSelfDrawnScore = 2000;
+                DealerSeifDrawnScore = 4000;
+            }
+            if (Fan == 6 || Fan == 7) {
+                ManGan = "跳滿";
+                chunkScore = 12000;
+                PlayerSelfDrawnScore = 3000;
+                DealerSeifDrawnScore = 6000;
+            }
+            if (Fan >= 8 && Fan <= 10) {
+                ManGan = "倍滿";
+                chunkScore = 16000;
+                PlayerSelfDrawnScore = 4000;
+                DealerSeifDrawnScore = 8000;
+            }
+            if (Fan == 11 || Fan == 12) {
+                ManGan = "三倍滿";
+                chunkScore = 24000;
+                PlayerSelfDrawnScore = 6000;
+                DealerSeifDrawnScore = 12000;
+            }
+            if (Fan >= 13) {
+                ManGan = "累積役滿";
+                chunkScore = 32000;
+                PlayerSelfDrawnScore = 8000;
+                DealerSeifDrawnScore = 16000;
+            }
+            SelfDrawnScore = PlayerSelfDrawnScore + DealerSeifDrawnScore;
+        }
+        if (idHome == 0 && idPeople == 1) {
+            //這是四麻親家
+            if (Fan == 1) {
+                if (Fu == 30) {
+                    chunkScore = 1500;
+                    PlayerSelfDrawnScore = 500;
+                }
+                if (Fu == 40) {
+                    chunkScore = 2000;
+                    PlayerSelfDrawnScore = 700;
+                }
+                if (Fu == 50) {
+                    chunkScore = 2400;
+                    PlayerSelfDrawnScore = 800;
+                }
+                if (Fu == 60) {
+                    chunkScore = 2900;
+                    PlayerSelfDrawnScore = 1000;
+                }
+                if (Fu == 70) {
+                    chunkScore = 3400;
+                    PlayerSelfDrawnScore = 1200;
+                }
+                if (Fu == 80) {
+                    chunkScore = 3900;
+                    PlayerSelfDrawnScore = 1300;
+                }
+                if (Fu == 90) {
+                    chunkScore = 4400;
+                    PlayerSelfDrawnScore = 1500;
+                }
+                if (Fu == 100) {
+                    chunkScore = 4800;
+                    PlayerSelfDrawnScore = 1600;
+                }
+                if (Fu == 110) {
+                    chunkScore = 5300;
+
+                }
+            }
+            if (Fan == 2) {
+                if (Fu == 20) {
+                    PlayerSelfDrawnScore = 700;
+                }
+                if (Fu == 25) {
+                    chunkScore = 2400;
+                }
+                if (Fu == 30) {
+                    chunkScore = 2900;
+                    PlayerSelfDrawnScore = 1000;
+                }
+                if (Fu == 40) {
+                    chunkScore = 3900;
+                    PlayerSelfDrawnScore = 1300;
+                }
+                if (Fu == 50) {
+                    chunkScore = 4800;
+                    PlayerSelfDrawnScore = 1600;
+                }
+                if (Fu == 60) {
+                    chunkScore = 5800;
+                    PlayerSelfDrawnScore = 2000;
+                }
+                if (Fu == 70) {
+                    chunkScore = 6800;
+                    PlayerSelfDrawnScore = 2300;
+                }
+                if (Fu == 80) {
+                    chunkScore = 7700;
+                    PlayerSelfDrawnScore = 2600;
+                }
+                if (Fu == 90) {
+                    chunkScore = 8700;
+                    PlayerSelfDrawnScore = 2900;
+                }
+                if (Fu == 100) {
+                    chunkScore = 9600;
+                    PlayerSelfDrawnScore = 3200;
+                }
+                if (Fu == 110) {
+                    chunkScore = 10600;
+                    PlayerSelfDrawnScore = 3600;
+                }
+            }
+            if (Fan == 3) {
+                if (Fu == 20) {
+                    PlayerSelfDrawnScore = 1300;
+                }
+                if (Fu == 25) {
+                    chunkScore = 4800;
+                    PlayerSelfDrawnScore = 1600;
+                }
+                if (Fu == 30) {
+                    chunkScore = 5800;
+                    PlayerSelfDrawnScore = 2000;
+                }
+                if (Fu == 40) {
+                    chunkScore = 7700;
+                    PlayerSelfDrawnScore = 2600;
+                }
+                if (Fu == 50) {
+                    chunkScore = 9600;
+                    PlayerSelfDrawnScore = 3200;
+                }
+                if (Fu == 60) {
+                    chunkScore = 11600;
+                    PlayerSelfDrawnScore = 3900;
+                }
+                if (Fu >= 70) {
+                    ManGan = "滿貫";
+                    chunkScore = 12000;
+                    PlayerSelfDrawnScore = 4000;
+                }
+            }
+            if (Fan == 4) {
+                if (Fu == 20) {
+                    PlayerSelfDrawnScore = 2600;
+                }
+                if (Fu == 25) {
+                    chunkScore = 9600;
+                    PlayerSelfDrawnScore = 3200;
+                }
+                if (Fu == 30) {
+                    chunkScore = 11600;
+                    PlayerSelfDrawnScore = 3900;
+                }
+                if (Fu >= 40) {
+                    ManGan = "滿貫";
+                    chunkScore = 12000;
+                    PlayerSelfDrawnScore = 4000;
+                }
+            }
+            if (Fan == 5) {
+                ManGan = "滿貫";
+                chunkScore = 12000;
+                PlayerSelfDrawnScore = 4000;
+            }
+            if (Fan == 6 || Fan == 7) {
+                ManGan = "跳滿";
+                chunkScore = 18000;
+                PlayerSelfDrawnScore = 6000;
+            }
+            if (Fan >= 8 && Fan <= 10) {
+                ManGan = "倍滿";
+                chunkScore = 24000;
+                PlayerSelfDrawnScore = 8000;
+            }
+            if (Fan == 11 || Fan == 12) {
+                ManGan = "三倍滿";
+                chunkScore = 36000;
+                PlayerSelfDrawnScore = 12000;
+            }
+            if (Fan >= 13) {
+                ManGan = "累積役滿";
+                chunkScore = 48000;
+                PlayerSelfDrawnScore = 16000;
+            }
+            SelfDrawnScore = PlayerSelfDrawnScore * 3;
+        }
+        if (idHome == 1 && idPeople == 1) {
+            //這是四麻閒家
+            if (Fan == 1) {
+                if (Fu == 30) {
+                    chunkScore = 1000;
+                    PlayerSelfDrawnScore = 300;
+                    DealerSeifDrawnScore = 500;
+                }
+                if (Fu == 40) {
+                    chunkScore = 1300;
+                    PlayerSelfDrawnScore = 400;
+                    DealerSeifDrawnScore = 700;
+                }
+                if (Fu == 50) {
+                    chunkScore = 1600;
+                    PlayerSelfDrawnScore = 400;
+                    DealerSeifDrawnScore = 800;
+                }
+                if (Fu == 60) {
+                    chunkScore = 2000;
+                    PlayerSelfDrawnScore = 500;
+                    DealerSeifDrawnScore = 1000;
+                }
+                if (Fu == 70){
+                    chunkScore = 2300;
+                    PlayerSelfDrawnScore = 600;
+                    DealerSeifDrawnScore = 1200;
+                }
+                if(Fu == 80){
+                    chunkScore = 2600;
+                    PlayerSelfDrawnScore = 700;
+                    DealerSeifDrawnScore = 1300;
+                }
+                if(Fu == 90){
+                    chunkScore = 2900;
+                    PlayerSelfDrawnScore = 800;
+                    DealerSeifDrawnScore = 1500;
+                }
+                if(Fu == 100){
+                    chunkScore = 3200;
+                    PlayerSelfDrawnScore = 800;
+                    DealerSeifDrawnScore = 1600;
+                }
+                if(Fu == 110){
+                    chunkScore = 3600;
+                }
+            }
+            if (Fan == 2){
+                if(Fu == 20){
+                    PlayerSelfDrawnScore = 400;
+                    DealerSeifDrawnScore = 700;
+                }
+                if(Fu == 25){
+                    chunkScore = 1600;
+                }
+                if (Fu == 30) {
+                    chunkScore = 2000;
+                    PlayerSelfDrawnScore = 500;
+                    DealerSeifDrawnScore = 1000;
+                }
+                if (Fu == 40) {
+                    chunkScore = 2600;
+                    PlayerSelfDrawnScore = 700;
+                    DealerSeifDrawnScore = 1300;
+                }
+                if (Fu == 50) {
+                    chunkScore = 3200;
+                    PlayerSelfDrawnScore = 800;
+                    DealerSeifDrawnScore = 1600;
+                }
+                if (Fu == 60) {
+                    chunkScore = 3900;
+                    PlayerSelfDrawnScore = 1000;
+                    DealerSeifDrawnScore = 2000;
+                }
+                if (Fu == 70){
+                    chunkScore = 4500;
+                    PlayerSelfDrawnScore = 1200;
+                    DealerSeifDrawnScore = 2300;
+                }
+                if(Fu == 80){
+                    chunkScore = 5200;
+                    PlayerSelfDrawnScore = 1300;
+                    DealerSeifDrawnScore = 2600;
+                }
+                if(Fu == 90){
+                    chunkScore = 5800;
+                    PlayerSelfDrawnScore = 1500;
+                    DealerSeifDrawnScore = 2900;
+                }
+                if(Fu == 100){
+                    chunkScore = 6400;
+                    PlayerSelfDrawnScore = 1600;
+                    DealerSeifDrawnScore = 3200;
+                }
+                if(Fu == 110){
+                    chunkScore = 7100;
+                    PlayerSelfDrawnScore = 1800;
+                    DealerSeifDrawnScore = 3600;
+                }
+            }
+            if(Fan == 3){
+                if(Fu == 20){
+                    PlayerSelfDrawnScore = 700;
+                    DealerSeifDrawnScore = 1300;
+                }
+                if(Fu == 25){
+                    chunkScore = 3200;
+                    PlayerSelfDrawnScore = 800;
+                    DealerSeifDrawnScore = 1600;
+                }
+                if(Fu == 30){
+                    chunkScore = 3900;
+                    PlayerSelfDrawnScore = 1000;
+                    DealerSeifDrawnScore = 2000;
+                }
+                if(Fu == 40){
+                    chunkScore = 5200;
+                    PlayerSelfDrawnScore = 1300;
+                    DealerSeifDrawnScore = 2600;
+                }
+                if(Fu == 50){
+                    chunkScore = 6400;
+                    PlayerSelfDrawnScore = 1600;
+                    DealerSeifDrawnScore = 3200;
+                }
+                if(Fu == 60){
+                    chunkScore = 7700;
+                    PlayerSelfDrawnScore = 2000;
+                    DealerSeifDrawnScore = 3900;
+                }
+                if(Fu >= 70){
+                    ManGan = "滿貫";
+                    chunkScore = 8000;
+                    PlayerSelfDrawnScore = 2000;
+                    DealerSeifDrawnScore = 4000;
+                }
+            }
+            if(Fan == 5){
+                ManGan = "滿貫";
+                chunkScore = 8000;
+                PlayerSelfDrawnScore = 2000;
+                DealerSeifDrawnScore = 4000;
+            }
+            if (Fan == 6 || Fan == 7) {
+                ManGan = "跳滿";
+                chunkScore = 12000;
+                PlayerSelfDrawnScore = 3000;
+                DealerSeifDrawnScore = 6000;
+            }
+            if (Fan >= 8 && Fan <= 10) {
+                ManGan = "倍滿";
+                chunkScore = 16000;
+                PlayerSelfDrawnScore = 4000;
+                DealerSeifDrawnScore = 8000;
+            }
+            if (Fan == 11 || Fan == 12) {
+                ManGan = "三倍滿";
+                chunkScore = 24000;
+                PlayerSelfDrawnScore = 6000;
+                DealerSeifDrawnScore = 12000;
+            }
+            if (Fan >= 13) {
+                ManGan = "累積役滿";
+                chunkScore = 32000;
+                PlayerSelfDrawnScore = 8000;
+                DealerSeifDrawnScore = 16000;
+            }
+            SelfDrawnScore = PlayerSelfDrawnScore * 2 + DealerSeifDrawnScore;
+        }
+        if(Session > 0){
+            if (idPeople == 1){
+                chunkScore += (Session * 300);
+                SelfDrawnScore += (Session * 300);
+                DealerSeifDrawnScore += (Session * 100);
+                PlayerSelfDrawnScore += (Session * 100);
+            }
+            if (idPeople == 0){
+                chunkScore += (Session * 300);
+                SelfDrawnScore += (Session * 300);
+                DealerSeifDrawnScore += (Session * 200);
+                PlayerSelfDrawnScore += (Session * 100);
+            }
+        }
+        output.setText(ManGan +
+                "\n總自摸得分: " + SelfDrawnScore +
+                "\n放槍得分: " + chunkScore +
+                "\n自摸閒家給分" + PlayerSelfDrawnScore +
+                "\n自摸親家給分:" + DealerSeifDrawnScore);
     }
 }

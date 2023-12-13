@@ -718,16 +718,32 @@ public class MainActivity extends AppCompatActivity {
         }
         if(Session > 0){
             if (idPeople == 1){
-                chunkScore += (Session * 300);
-                SelfDrawnScore += (Session * 300);
-                DealerSeifDrawnScore += (Session * 100);
-                PlayerSelfDrawnScore += (Session * 100);
+                if (idHome == 0){
+                    chunkScore += (Session * 300);
+                    SelfDrawnScore += (Session * 300);
+                    PlayerSelfDrawnScore += (Session * 100);
+                }
+                if (idHome == 1){
+                    chunkScore += (Session * 300);
+                    SelfDrawnScore += (Session * 300);
+                    DealerSeifDrawnScore += (Session * 100);
+                    PlayerSelfDrawnScore += (Session * 100);
+                }
+
             }
-            if (idPeople == 0){
-                chunkScore += (Session * 300);
-                SelfDrawnScore += (Session * 300);
-                DealerSeifDrawnScore += (Session * 200);
-                PlayerSelfDrawnScore += (Session * 100);
+            if (idPeople == 0) {
+                if (idHome == 1){
+                    chunkScore += (Session * 200);
+                    SelfDrawnScore += (Session * 200);
+                    DealerSeifDrawnScore += (Session * 100);
+                    PlayerSelfDrawnScore += (Session * 100);
+                }
+                if (idHome == 0){
+                    chunkScore += (Session * 200);
+                    SelfDrawnScore += (Session * 200);
+                    PlayerSelfDrawnScore += (Session * 100);
+
+                }
             }
         }
         output.setText(ManGan +

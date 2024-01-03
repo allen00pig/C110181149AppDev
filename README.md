@@ -14,7 +14,7 @@ APP開發
 1.點數計算
 2.骰骰子
 ### APP截圖
-主頁面
-![主頁面](%20screenshot/Main.png)
-擲骰子頁面
+主頁面<br>
+![主頁面](%20screenshot/Main.png)<br>
+擲骰子頁面<br>
 ![擲骰子](%20screenshot/Dice.png)
